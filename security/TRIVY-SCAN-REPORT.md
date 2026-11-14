@@ -1,7 +1,7 @@
 # Container Image Security Scan Report (Trivy)
 
 **Sprint 2 — Task 3** · Scanner: Trivy v0.76.2 (`--scanners vuln --severity HIGH,CRITICAL`)
-**Date:** 2026-11-14 · Raw reports: `security/trivy-*.txt|.json`
+**Date:** 2026-11-14 · Raw reports: `security/scans/{backend,frontend}/{initial,final}.*`
 
 ## 1. Initial Scan — Findings
 
