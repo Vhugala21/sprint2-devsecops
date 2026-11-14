@@ -1,4 +1,4 @@
-FROM maven:3.9-eclipse-temurin-21-alpine AS build
+FROM maven:3.9-eclipse-temurin-25-alpine AS build
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN mvn -B package \
     && test -n "$jar_file" \
     && cp "$jar_file" /app/app.jar
 
-FROM eclipse-temurin:21-jre-alpine AS runtime
+FROM eclipse-temurin:25-jre-alpine AS runtime
 
 WORKDIR /app
 COPY --from=build --chown=10001:10001 /app/app.jar /app/app.jar

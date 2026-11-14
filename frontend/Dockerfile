@@ -14,6 +14,11 @@ RUN npm run build -- --configuration production \
 
 FROM nginxinc/nginx-unprivileged:stable-alpine AS runtime
 
+# Patch OS-level CVEs (brotli, curl, expat, musl, ...) found by Trivy.
+USER root
+RUN apk upgrade --no-cache
+USER nginx
+
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/nginx-html/ /usr/share/nginx/html/
 

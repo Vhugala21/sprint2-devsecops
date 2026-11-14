@@ -7,3 +7,5 @@ target/
 .idea/
 *.iml
 .vscode/
+.env
+!.env.example

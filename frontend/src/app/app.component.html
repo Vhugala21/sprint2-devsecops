@@ -178,6 +178,21 @@
 </style>
 
 <main class="main">
+  <section class="backend-status" aria-live="polite">
+    <h2>Backend connection</h2>
+    @if (backendState === 'loading') {
+      <p>Connecting to the backend...</p>
+    } @else if (backendState === 'error') {
+      <p class="backend-error">{{ backendError }}</p>
+      <button type="button" (click)="loadBackendStatus()">Retry connection</button>
+    } @else {
+      @if (helloResponse; as response) {
+        <p>{{ response.message }}</p>
+        <p>API status: {{ response.status }}</p>
+      }
+    }
+  </section>
+
   <div class="content">
     <div class="left-side">
       <svg
